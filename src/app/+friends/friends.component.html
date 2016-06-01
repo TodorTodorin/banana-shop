@@ -1,0 +1,22 @@
+<md-card>
+  <md-card-title>Create retard</md-card-title>
+  <md-card-content>
+    <form #f="ngForm">
+      <md-input placeholder="Name" ngControl="name"></md-input>
+      <md-input placeholder="Description" ngControl="description"></md-input>
+      <md-input placeholder="Image URL" ngControl="image"></md-input>
+    </form>
+  </md-card-content>
+  <md-card-actions align="end">
+    <button md-raised-button color="accent" (click)="postRetard(f.value)">Post</button>
+  </md-card-actions>
+</md-card>
+<md-card *ngFor="let friend of friends | async">
+  <img md-card-image [alt]="friend.name" [src]="friend.image"/>
+  <md-card-title>
+    {{friend.name}}
+  </md-card-title>
+  <md-card-content class="secondary">
+    {{friend.description}}
+  </md-card-content>
+</md-card>
